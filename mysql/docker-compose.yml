@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  cellllink-mysql:
+    container_name: cellllink
+    image: mysql:latest
+
+    restart: always
+
+    environment:
+      # 配置 root 密码
+      MYSQL_ROOT_PASSWORD: root
+
+    volumes:
+      # 挂载数据到本地
+      # windows
+      - /d/cellllink/docker_volumes/mysql/conf:/etc/mysql
+      - /d/cellllink/docker_volumes/mysql/data:/var/lib/mysql
+      # mac
+    
+    ports:
+    - '3306:3306'
